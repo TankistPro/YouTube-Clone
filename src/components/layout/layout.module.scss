@@ -1,6 +1,5 @@
 @keyframes hideSidebar {
 	from {
-		transform: translate(0);
 		width: var(--sidebar-width);
 	}
 
@@ -15,7 +14,6 @@
 	}
 
 	to {
-		transform: translate(0);
 		width: var(--sidebar-width);
 	}
 }
@@ -33,10 +31,6 @@
 				margin: 0;
 			}
 		}
-	}
-
-	> div {
-		@apply w-full;
 	}
 }
 
