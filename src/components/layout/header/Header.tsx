@@ -1,5 +1,5 @@
 function Header() {
-	return <header>Header</header>;
+	return <header className='p-layout'>Header</header>;
 }
 
 export default Header;
