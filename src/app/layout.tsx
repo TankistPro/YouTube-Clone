@@ -3,6 +3,8 @@ import { Noto_Sans } from 'next/font/google';
 
 import Layout from '@/components/layout/Layout';
 
+import { Providers } from '@/providers/Providers';
+
 import './globals.scss';
 
 const noto_Sans = Noto_Sans({ subsets: ['latin'] });
@@ -20,7 +22,9 @@ export default function RootLayout({
 	return (
 		<html lang='en'>
 			<body className={noto_Sans.className}>
-				<Layout>{children}</Layout>
+				<Providers>
+					<Layout>{children}</Layout>
+				</Providers>
 			</body>
 		</html>
 	);

@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 import { COLORS } from '@/constants/color.constant';
 
-import { PUBLIC_PAGE } from '@/config/public-page.config';
+import { PAGE } from '@/config/public-page.config';
 
 const SidebarHeader = ({ toggleSidebar }: { toggleSidebar: () => void }) => {
 	return (
@@ -15,7 +15,7 @@ const SidebarHeader = ({ toggleSidebar }: { toggleSidebar: () => void }) => {
 				<Menu />
 			</button>
 			<Link
-				href={PUBLIC_PAGE.EXPLORE}
+				href={PAGE.EXPLORE}
 				className='flex gap-1.5 items-center'
 			>
 				<SquarePlay
