@@ -10,7 +10,10 @@ import './globals.scss';
 const noto_Sans = Noto_Sans({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-	title: 'YouTube-Clone',
+	title: {
+		absolute: 'YouTube-Clone',
+		template: `%s | YouTube-Clone`
+	},
 	description: 'TouTube-Clone App for video watching'
 };
 

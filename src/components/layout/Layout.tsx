@@ -16,7 +16,13 @@ export default function Layout({ children }: PropsWithChildren<unknown>) {
 	};
 
 	return (
-		<main className={cn('flex min-h-screen', isShowedSidebar ? styles.showedSidebar : styles.hidedSidebar)}>
+		<main
+			className={cn(
+				'flex min-h-screen',
+				styles.initialSidebar,
+				isShowedSidebar ? styles.showedSidebar : styles.hidedSidebar
+			)}
+		>
 			<Sidebar toggleSidebar={toggleSidebar} />
 			<Content>{children}</Content>
 		</main>
