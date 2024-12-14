@@ -3,14 +3,11 @@ class PublicPage {
 	TRENDING = '/trending';
 	VIDEO_GAME = '/vide_games';
 
-	SEARCH = '/search';
-
 	MY_CHANNEL = '/my-channel';
 	SUBSCRIPTION = '/subscription';
 	HISTORY = '/history';
 	LIKED_VIDEO = '/liked-video';
 
-	SETTINGS = '/settings';
 	FEEDBACK = '/feedback';
 
 	VIDEO(path: string) {
@@ -19,6 +16,10 @@ class PublicPage {
 
 	CHANNEL(path: string) {
 		return `/c/${path}`;
+	}
+
+	SEARCH(searchTerm: string) {
+		return `/s?term=${searchTerm}`;
 	}
 }
 

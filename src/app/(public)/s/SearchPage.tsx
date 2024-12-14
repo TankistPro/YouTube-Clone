@@ -1,7 +1,8 @@
 'use client';
 
 import { useQuery } from '@tanstack/react-query';
-import { Compass } from 'lucide-react';
+import { Search } from 'lucide-react';
+import { useSearchParams } from 'next/navigation';
 
 import { Heading } from '@/ui/Heading';
 import { SkeletonLoader } from '@/ui/SkeletonLoader';
@@ -9,28 +10,38 @@ import { VideoItem } from '@/ui/VideoItem/VideoItem';
 
 import { videoService } from '@/services/video.service';
 
-export function Explore() {
+export default function SearchPage() {
+	const searchParams = useSearchParams();
+	const searchTerm = searchParams.get('term');
+
 	const { data, isLoading } = useQuery({
-		queryKey: ['explore'],
-		queryFn: () => videoService.getExploreVideos()
+		queryKey: ['search', searchTerm],
+		queryFn: () => videoService.getAll(searchTerm)
 	});
+
 	return (
 		<section>
-			<Heading Icon={Compass}>Explore</Heading>
+			<Heading
+				isH1
+				Icon={Search}
+			>
+				Search by &quot;{searchTerm}&quot;
+			</Heading>
 			<div className='grid grid-cols-6 gap-6'>
 				{isLoading ? (
 					<SkeletonLoader
 						count={6}
 						className='h-44 rounded-md'
 					/>
-				) : (
-					!!data?.data.totalCount &&
+				) : data?.data.totalCount ? (
 					data.data.videos.map(video => (
 						<VideoItem
 							video={video}
 							key={video.id}
 						/>
 					))
+				) : (
+					<p>Videos not found</p>
 				)}
 			</div>
 		</section>

@@ -10,6 +10,10 @@ class VideoService {
 	getTrendingVideos() {
 		return axios.get<IVideo[]>('http://localhost:4200/api/videos/trending');
 	}
+
+	getAll(searchTerm?: string | null) {
+		return axios.get<IPaginateVideos>('http://localhost:4200/api/videos', searchTerm ? { params: { searchTerm } } : {});
+	}
 }
 
 export const videoService = new VideoService();
