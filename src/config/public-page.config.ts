@@ -1,7 +1,7 @@
 class PublicPage {
 	EXPLORE = '/';
 	TRENDING = '/trending';
-	VIDEO_GAME = '/vide_games';
+	VIDEO_GAME = '/video-games';
 
 	MY_CHANNEL = '/my-channel';
 	SUBSCRIPTION = '/subscription';
