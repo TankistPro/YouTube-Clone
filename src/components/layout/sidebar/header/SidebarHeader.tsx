@@ -1,9 +1,6 @@
-import { Menu, SquarePlay } from 'lucide-react';
-import Link from 'next/link';
+import { Menu } from 'lucide-react';
 
-import { COLORS } from '@/constants/color.constant';
-
-import { PAGE } from '@/config/public-page.config';
+import { Logo } from './Logo';
 
 const SidebarHeader = ({ toggleSidebar }: { toggleSidebar: () => void }) => {
 	return (
@@ -14,16 +11,8 @@ const SidebarHeader = ({ toggleSidebar }: { toggleSidebar: () => void }) => {
 			>
 				<Menu />
 			</button>
-			<Link
-				href={PAGE.EXPLORE}
-				className='flex gap-1.5 items-center'
-			>
-				<SquarePlay
-					color={COLORS.primary}
-					size={28}
-				/>
-				<span className='font-semibold'>YouTub Video</span>
-			</Link>
+
+			<Logo />
 		</div>
 	);
 };
