@@ -13,7 +13,7 @@ export function SkeletonLoader({ count = 1, style, className = '' }: Props) {
 			{Array.from({ length: count }).map((_, index) => (
 				<div
 					key={index}
-					className={twMerge('bg-slate-800 rounded-sm h-10 mb-2.5 animate-pulse', className)}
+					className={twMerge('bg-slate-800 rounded-sm h-10 mb-2.5 animate-pulse w-full', className)}
 					style={style}
 				/>
 			))}

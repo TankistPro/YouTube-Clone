@@ -10,7 +10,7 @@ interface Props extends InputHTMLAttributes<HTMLInputElement> {
 
 export function Field({ label, error, registration, ...props }: Props) {
 	return (
-		<div className='mb-4'>
+		<div className='mb-4 w-full'>
 			<label>
 				<span className='block text-gray-400 font-semibold mb-2'>{label}</span>
 				<input
