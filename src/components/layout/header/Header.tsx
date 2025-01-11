@@ -1,6 +1,14 @@
+import dynamic from 'next/dynamic';
+
+import { SkeletonLoader } from '@/ui/SkeletonLoader';
+
 import { HeaderLinks } from './HeaderLinks';
 import { SearchField } from './SearchField';
-import { HeaderProfile } from './profile/HeaderProfile';
+
+const HeaderProfileLazy = dynamic(async () => (await import('./profile/HeaderProfile')).HeaderProfile, {
+	ssr: false,
+	loading: () => <SkeletonLoader className='w-[40px] rounded-xl mb-0' />
+});
 
 function Header() {
 	return (
@@ -8,7 +16,7 @@ function Header() {
 			<SearchField />
 			<div className='flex items-center gap-7'>
 				<HeaderLinks />
-				<HeaderProfile />
+				<HeaderProfileLazy />
 			</div>
 		</header>
 	);
